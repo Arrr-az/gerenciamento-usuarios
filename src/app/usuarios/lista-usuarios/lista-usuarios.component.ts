@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { USUARIOS } from '../mock-usuarios';
 import { Usuario } from '../usuario';
 import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
@@ -15,7 +14,7 @@ export class ListaUsuariosComponent {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private usuarioStorageService: UsuarioStorageService,
+    private usuarioStorageService: UsuarioStorageService
   ) {}
 
   usuarios!: Usuario[];
