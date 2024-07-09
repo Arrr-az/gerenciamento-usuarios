@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { Endereco, Usuario } from '../../usuario';
 import { UsuarioStorageService } from '../../usuario-storage.service';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { DialogService } from 'src/app/dialog.service';
+import { cpfRfValidator } from '../../validacao/cpf-rf.validator';
 
 @Component({
   selector: 'app-manter-usuarios-rf',
@@ -21,12 +22,12 @@ export class ManterUsuariosRfComponent {
   idade!: number;
 
   usuarioForm = this.formBuilder.group({
-    nome: [''],
-    dataDeNascimento: [''],
-    cpf: [''],
+    nome: ['', Validators.required],
+    dataDeNascimento: ['', Validators.required],
+    cpf: ['', Validators.required, cpfRfValidator()],   // <---------------------------------
     cpfResponsável: [''],
-    email: [''],
-    isAdmin: new FormControl(false),
+    email: ['', Validators.required],
+    isAdmin: new FormControl(false, Validators.required),
     nomeSocial: [''],
     endereco: this.formBuilder.group({
       cidade: [''],

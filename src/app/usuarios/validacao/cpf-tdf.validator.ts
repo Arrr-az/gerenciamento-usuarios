@@ -1,21 +1,20 @@
-import { Validator, NG_VALIDATORS, FormControl } from '@angular/forms'
-import { Directive, OnInit } from '@angular/core';
+import { Validator, NG_VALIDATORS, FormControl, ValidationErrors } from '@angular/forms'
+import { Directive } from '@angular/core';
  
  
 @Directive({
-  selector: '[cpfValidator]',
+  selector: '[cpfTdfValidator]',
   providers: [
-    { provide: NG_VALIDATORS, useExisting: cpfValidatorDirective, multi: true }
+    { provide: NG_VALIDATORS, useExisting: cpfTdfValidatorDirective, multi: true }
   ]
 })
-export class cpfValidatorDirective implements Validator, OnInit {
+export class cpfTdfValidatorDirective implements Validator {
  
-  ngOnInit() {
-  }
- 
-  validate(c: FormControl) {
+  validate(c: FormControl): ValidationErrors | null {
  
     const cpf: string = c.value;
+
+    console.log(cpf);
 
 	if (isNaN( +cpf )) {
 		return { 'naoNumerico': true }
@@ -84,7 +83,6 @@ export class cpfValidatorDirective implements Validator, OnInit {
 	if (digito2 !== parseInt(cpf.substring(10, 11)) ) {
 		return { 'CPF-invalido': true }
 	}
-	//
  
     return null;
   }

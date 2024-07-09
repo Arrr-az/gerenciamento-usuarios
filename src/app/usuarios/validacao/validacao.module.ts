@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { cpfValidatorDirective } from '../validacao/cpf.validator'
+import { cpfTdfValidatorDirective } from './cpf-tdf.validator';
 
 
 @NgModule({
-  declarations: [cpfValidatorDirective],
+  declarations: [cpfTdfValidatorDirective],
   imports: [
     CommonModule
   ],
-  exports: [cpfValidatorDirective]
+  exports: [cpfTdfValidatorDirective]
 })
 export class ValidacaoModule { }

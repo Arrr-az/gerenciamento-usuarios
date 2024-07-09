@@ -9,7 +9,6 @@
             <label>Nome:</label>
             <br>
             <input type="text" name="nome"
-            required
             formControlName="nome">
         </div>
 
@@ -17,7 +16,6 @@
             <label>Data de Nascimento:</label>
             <br>
             <input type="date" name="dataDeNascimento" id="dataDeNascimento"
-            required
             (ngModelChange)="updateIdade($event)"
 			formControlName="dataDeNascimento"
             [ngModel]="usuario.dataDeNascimento">
@@ -28,8 +26,6 @@
             <br>
             <input type="text" name="cpf"
             mask="000.000.000-00"
-            required
-            cpfValidator
 			formControlName="cpf">
         </div>
 
@@ -38,8 +34,6 @@
             <br>
             <input type="text" name="cpfResponsavel"
             mask="000.000.000-00"
-            required
-            cpfValidator
 			formControlName="cpfResponsavel">
         </div>
 
@@ -47,7 +41,6 @@
             <label>Email:</label>
             <br>
             <input type="email" name="email"
-            required
 			formControlName="email">
         </div>
 
@@ -55,12 +48,10 @@
             <label>É admin:</label>
             <br>
             <input type="radio" name="isAdmin"
-            required
 			formControlName="isAdmin"
             [value]="true"> <label>Sim</label>
 
             <input type="radio" name="isAdmin"
-            required
 			formControlName="isAdmin"
             [value]="false"> <label>Não</label>
         </div>
