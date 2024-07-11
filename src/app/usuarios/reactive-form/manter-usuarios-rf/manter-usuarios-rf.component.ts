@@ -24,7 +24,9 @@ export class ManterUsuariosRfComponent {
   usuarioForm = this.formBuilder.group({
     nome: ['', Validators.required],
     dataDeNascimento: ['', Validators.required],
-    cpf: ['', [Validators.required, cpfValidator()]],
+    cpf: ['', {
+        validators: [Validators.required, cpfValidator()]
+    }],
     cpfResponsavel: [''],
     email: ['', Validators.required],
     isAdmin: new FormControl(false, Validators.required),
