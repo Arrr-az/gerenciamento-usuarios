@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { DialogService } from 'src/app/dialog.service';
-import { cpfRfValidator } from '../../validacao/cpf-rf.validator';
+import { cpfValidator } from '../../validacao/cpf.validator';
 
 @Component({
   selector: 'app-manter-usuarios-rf',
@@ -24,8 +24,8 @@ export class ManterUsuariosRfComponent {
   usuarioForm = this.formBuilder.group({
     nome: ['', Validators.required],
     dataDeNascimento: ['', Validators.required],
-    cpf: ['', Validators.required, cpfRfValidator()],   // <---------------------------------
-    cpfResponsável: [''],
+    cpf: ['', [Validators.required, cpfValidator()]],
+    cpfResponsavel: [''],
     email: ['', Validators.required],
     isAdmin: new FormControl(false, Validators.required),
     nomeSocial: [''],
@@ -79,7 +79,7 @@ export class ManterUsuariosRfComponent {
 
     if( usuario.cpfResponsavel !== undefined ) {
       this.usuarioForm.patchValue({
-        cpfResponsável: usuario.cpfResponsavel
+        cpfResponsavel: usuario.cpfResponsavel
       });
     }
   }

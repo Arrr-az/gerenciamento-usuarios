@@ -1,6 +1,6 @@
 import {AbstractControl, ValidationErrors, ValidatorFn} from '@angular/forms';
 
-export function cpfRfValidator(): ValidatorFn {
+export function cpfValidator(): ValidatorFn {
 
     return (control: AbstractControl): ValidationErrors | null => {
 
@@ -10,7 +10,7 @@ export function cpfRfValidator(): ValidatorFn {
 
         if (isNaN( +cpf )) {
             return { 'naoNumerico': true }
-          }
+        }
       
         if (cpf.length !== 11) {
             return { 'cpfNaoContem11Caracteres': true }
